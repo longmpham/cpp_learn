@@ -9,7 +9,6 @@ class myStack
     int stackSize;
     
   public:
-
     myStack(int size) {
       startPointer = theStack;
       stackSize = size;
@@ -33,9 +32,10 @@ class myStack
         temp++;
       }
       // temp is either at the end or the stack is full. In either case, subtract temp
-      // pointer location by 1 and make it 0.
+      // pointer location by 1 and make it 0 to "remove" the item from the stack
       temp--;
       *temp = 0;
+      // can also become *--temp = 0; for one line.
     }
     void searchStack(int number)
     {
@@ -73,6 +73,54 @@ class myStack
       }
       cout << endl;
     }
+
+    ~myStack()
+    {
+      // delete [] theStack; 
+    }
+};
+
+
+class myStackDynamic
+{
+
+  private:
+    int *startPointer;
+    int *myStack;
+    int stackSize;
+  public:
+
+    myStackDynamic(int size)
+    {
+      stackSize = size;
+      myStack = new int[stackSize];
+      startPointer = myStack;
+    }
+
+    void appendToStack(int number)
+    {
+      
+    }
+
+    void removeFromStack()
+    {
+
+    }
+
+    void searchStack(int number)
+    {
+
+    }
+
+    void printStack()
+    {
+
+    }
+
+    ~myStackDynamic()
+    {
+
+    }
 };
 
 
@@ -84,6 +132,7 @@ int main()
   // create a function that pops from the stack (remove)
   // create a function that searches the stack for an element.
   // dont forget your constructor and destructor.
+  // Todo: create a stack with dynamic array size (init with size x)
 
   myStack stk = myStack(10);
 

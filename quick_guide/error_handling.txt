@@ -1,0 +1,114 @@
+Here's a summary of error handling in C++ along with multiple examples:
+
+    Exception Handling:
+        Exception handling provides a structured way to handle and recover from exceptional situations during program execution.
+        Exceptions can be thrown using the throw keyword and caught using try-catch blocks.
+
+cpp
+
+#include <iostream>
+
+double divide(int numerator, int denominator) {
+    if (denominator == 0) {
+        throw std::runtime_error("Divide by zero exception");
+    }
+    return static_cast<double>(numerator) / denominator;
+}
+
+int main() {
+    try {
+        double result = divide(10, 0);
+        std::cout << "Result: " << result << std::endl;
+    } catch (const std::exception& e) {
+        std::cout << "Error occurred: " << e.what() << std::endl;
+    }
+
+    return 0;
+}
+
+    Custom Exception Classes:
+        You can define custom exception classes by inheriting from the std::exception base class or its derived classes.
+        Custom exception classes allow you to create meaningful error messages and handle specific types of exceptions.
+
+cpp
+
+#include <iostream>
+#include <stdexcept>
+
+class MyException : public std::exception {
+public:
+    const char* what() const noexcept override {
+        return "Custom exception occurred";
+    }
+};
+
+int main() {
+    try {
+        throw MyException();
+    } catch (const std::exception& e) {
+        std::cout << "Error occurred: " << e.what() << std::endl;
+    }
+
+    return 0;
+}
+
+    Error Codes and Return Values:
+        Functions can return error codes or specific values to indicate an error condition.
+        Return values can be checked by the caller to handle errors appropriately.
+
+cpp
+
+#include <iostream>
+
+bool divide(int numerator, int denominator, double& result) {
+    if (denominator == 0) {
+        return false; // Indicate an error condition
+    }
+    result = static_cast<double>(numerator) / denominator;
+    return true;
+}
+
+int main() {
+    double result;
+    if (divide(10, 0, result)) {
+        std::cout << "Result: " << result << std::endl;
+    } else {
+        std::cout << "Error: Divide by zero" << std::endl;
+    }
+
+    return 0;
+}
+
+    Assertions:
+        Assertions are used to verify assumptions made during program execution.
+        They are typically used during development to catch logical errors.
+        If an assertion fails, it triggers an assertion failure and terminates the program.
+
+cpp
+
+#include <cassert>
+
+int divide(int numerator, int denominator) {
+    assert(denominator != 0);
+    return numerator / denominator;
+}
+
+int main() {
+    int result = divide(10, 0); // Assertion failure and program termination
+
+    return 0;
+}
+
+    Standard Error Reporting:
+        C++ provides standard error reporting mechanisms such as std::cerr and std::clog for printing error messages and logging.
+
+cpp
+
+#include <iostream>
+
+int main() {
+    std::cerr << "Error: Divide by zero" << std::endl; // Standard error output
+    std::clog << "Warning: Overflow detected" << std::endl; // Standard logging output
+
+    return 0;
+}

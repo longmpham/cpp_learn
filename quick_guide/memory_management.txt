@@ -1,0 +1,86 @@
+Here's a summary of memory management in C++ along with multiple examples:
+
+    Stack Memory:
+        Stack memory is managed automatically by the compiler.
+        Variables declared within functions are typically allocated on the stack.
+        Memory allocation and deallocation occur automatically when entering and exiting a scope.
+
+cpp
+
+int main() {
+    int number = 5; // Allocated on the stack
+
+    // ...
+
+    // Memory deallocated automatically when the variable goes out of scope
+    return 0;
+}
+
+    Heap Memory:
+        Heap memory is manually managed using dynamic memory allocation.
+        Memory is allocated and deallocated explicitly using new and delete operators, respectively.
+        Failure to deallocate heap memory can result in memory leaks.
+
+cpp
+
+int main() {
+    int* dynamicNumber = new int; // Allocated on the heap
+    *dynamicNumber = 10;
+
+    // ...
+
+    delete dynamicNumber; // Memory deallocation
+    return 0;
+}
+
+    Dynamic Arrays:
+        Dynamic arrays are created on the heap using new[] and deallocated using delete[].
+        They allow flexibility in allocating memory for arrays at runtime.
+        Deleting the array using delete instead of delete[] results in undefined behavior.
+
+cpp
+
+int main() {
+    int size = 5;
+    int* dynamicArray = new int[size]; // Allocated on the heap
+
+    // ...
+
+    delete[] dynamicArray; // Memory deallocation for arrays
+    return 0;
+}
+
+    Smart Pointers:
+        Smart pointers (e.g., std::unique_ptr, std::shared_ptr) are C++ library classes that manage memory automatically.
+        They provide automatic memory deallocation based on their ownership policies.
+        Smart pointers help avoid memory leaks and deallocation errors.
+
+cpp
+
+#include <memory>
+
+int main() {
+    std::unique_ptr<int> smartNumber = std::make_unique<int>(10); // Automatic memory management
+
+    // ...
+
+    // Memory deallocation handled automatically
+    return 0;
+}
+
+    Memory Management Functions:
+        C++ provides functions such as malloc() and free() inherited from C for manual memory management.
+        These functions allocate and deallocate memory on the heap but lack the safety features of C++ memory management constructs.
+
+cpp
+
+#include <cstdlib>
+
+int main() {
+    int* mallocNumber = static_cast<int*>(std::malloc(sizeof(int))); // Allocated using malloc
+
+    // ...
+
+    std::free(mallocNumber); // Memory deallocation using free
+    return 0;
+}

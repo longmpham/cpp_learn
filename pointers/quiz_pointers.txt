@@ -1,0 +1,69 @@
+Question: What is a pointer in C++?
+
+a) A variable that stores the memory address of another variable
+b) A variable that stores the value of another variable
+c) A type of loop in C++
+d) A reserved keyword in C++
+
+Question: How do you declare a pointer in C++?
+
+a) int pointerVar;
+b) int *pointerVar;
+c) pointerVar int;
+d) pointerVar *int;
+
+Question: What does the address-of operator (&) do in C++?
+
+a) It creates a reference variable
+b) It dereferences a pointer
+c) It returns the memory address of a variable
+d) It performs bitwise AND operation
+
+Question: How do you assign the address of a variable to a pointer?
+
+a) int *ptr = &variable;
+b) ptr = *variable;
+c) int *ptr = *variable;
+d) ptr = &variable;
+
+Question: What does dereferencing a pointer mean in C++?
+
+a) Accessing the memory address of a pointer
+b) Creating a new pointer
+c) Accessing the value at the memory address a pointer points to
+d) Deleting a pointer
+
+Question: How do you dereference a pointer in C++?
+
+a) *ptr;
+b) &ptr;
+c) ptr*;
+d) &*ptr;
+
+Question: What is a null pointer in C++?
+
+a) A pointer with a value of zero
+b) A pointer with a value of one
+c) A pointer pointing to an empty memory space
+d) A reserved keyword in C++
+
+Question: How do you assign a null value to a pointer in C++?
+
+a) ptr = null;
+b) ptr = 0;
+c) ptr = nullptr;
+d) ptr = void;
+
+Question: What is a pointer to a constant variable in C++?
+
+a) const int* ptr;
+b) int* const ptr;
+c) const int* const ptr;
+d) int const * ptr;
+
+Question: What is a constant pointer to a constant variable in C++?
+
+a) const int* const ptr;
+b) int const * const ptr;
+c) const int* ptr;
+d) int* const ptr;

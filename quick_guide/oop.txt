@@ -1,0 +1,247 @@
+Here's a summary of C++ Object-Oriented Programming (OOP) concepts along with examples:
+
+    Classes and Objects:
+        A class is a blueprint for creating objects, which are instances of the class.
+        Classes define the properties (member variables) and behaviors (member functions) of objects.
+
+cpp
+
+class Rectangle {
+public:
+    double length;
+    double width;
+
+    double calculateArea() {
+        return length * width;
+    }
+};
+
+int main() {
+    Rectangle myRect; // Creating an object of the Rectangle class
+
+    myRect.length = 5.0;
+    myRect.width = 3.0;
+
+    double area = myRect.calculateArea();
+    std::cout << "Area: " << area << std::endl;
+    return 0;
+}
+
+    Encapsulation:
+        Encapsulation refers to the bundling of data and related functions within a class.
+        Access specifiers (public, private, protected) control the visibility of class members.
+
+cpp
+
+class Circle {
+private:
+    double radius;
+
+public:
+    double getRadius() {
+        return radius;
+    }
+
+    void setRadius(double r) {
+        if (r >= 0) {
+            radius = r;
+        }
+    }
+
+    double calculateArea() {
+        return 3.14159 * radius * radius;
+    }
+};
+
+int main() {
+    Circle myCircle;
+
+    myCircle.setRadius(4.0);
+
+    double radius = myCircle.getRadius();
+    double area = myCircle.calculateArea();
+
+    std::cout << "Radius: " << radius << std::endl;
+    std::cout << "Area: " << area << std::endl;
+    return 0;
+}
+
+    Inheritance:
+        Inheritance allows a class to inherit properties and behaviors from another class.
+        The derived class (subclass) extends or specializes the base class (superclass).
+
+cpp
+
+class Shape {
+protected:
+    double area;
+
+public:
+    void setArea(double a) {
+        area = a;
+    }
+};
+
+class Square : public Shape {
+public:
+    double calculateArea(double side) {
+        area = side * side;
+        return area;
+    }
+};
+
+int main() {
+    Square mySquare;
+    double area = mySquare.calculateArea(5.0);
+    std::cout << "Area: " << area << std::endl;
+    return 0;
+}
+
+    Polymorphism:
+        Polymorphism allows objects of different classes to be treated as objects of a common base class.
+        Polymorphism enables overriding functions and using virtual functions.
+
+cpp
+
+class Animal {
+public:
+    virtual void makeSound() {
+        std::cout << "Animal makes a sound" << std::endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    void makeSound() override {
+        std::cout << "Dog barks" << std::endl;
+    }
+};
+
+class Cat : public Animal {
+public:
+    void makeSound() override {
+        std::cout << "Cat meows" << std::endl;
+    }
+};
+
+int main() {
+    Animal* animal1 = new Dog();
+    Animal* animal2 = new Cat();
+
+    animal1->makeSound(); // Output: Dog barks
+    animal2->makeSound(); // Output: Cat meows
+
+    delete animal1;
+    delete animal2;
+    return 0;
+}
+
+
+Here's a summary of abstract classes, interfaces, and operator overloading in C++, along with examples:
+
+    Abstract Classes:
+        An abstract class is a class that cannot be instantiated and is meant to be a base class for other classes.
+        It can have both regular member functions and pure virtual functions.
+        Pure virtual functions are declared using the virtual keyword and the = 0 syntax.
+        Classes derived from an abstract class must implement the pure virtual functions.
+
+cpp
+
+class Shape {
+public:
+    virtual double calculateArea() = 0; // Pure virtual function
+
+    void printArea() {
+        std::cout << "Area: " << calculateArea() << std::endl;
+    }
+};
+
+class Rectangle : public Shape {
+private:
+    double length;
+    double width;
+
+public:
+    Rectangle(double l, double w) : length(l), width(w) {}
+
+    double calculateArea() override {
+        return length * width;
+    }
+};
+
+int main() {
+    Shape* shape = new Rectangle(5.0, 3.0);
+    shape->printArea(); // Output: Area: 15
+
+    delete shape;
+    return 0;
+}
+
+    Interfaces:
+        Interfaces in C++ are implemented using abstract classes consisting solely of pure virtual functions.
+        Interfaces define a contract that derived classes must adhere to by implementing the pure virtual functions.
+
+cpp
+
+class Drawable {
+public:
+    virtual void draw() const = 0;
+};
+
+class Circle : public Drawable {
+public:
+    void draw() const override {
+        std::cout << "Drawing a circle" << std::endl;
+    }
+};
+
+class Rectangle : public Drawable {
+public:
+    void draw() const override {
+        std::cout << "Drawing a rectangle" << std::endl;
+    }
+};
+
+int main() {
+    Drawable* shape1 = new Circle();
+    Drawable* shape2 = new Rectangle();
+
+    shape1->draw(); // Output: Drawing a circle
+    shape2->draw(); // Output: Drawing a rectangle
+
+    delete shape1;
+    delete shape2;
+    return 0;
+}
+
+    Operator Overloading:
+        Operator overloading allows custom definitions of how operators work with user-defined types.
+        It enables the use of operators, such as +, -, *, /, =, etc., with custom objects.
+
+cpp
+
+class Vector {
+private:
+    double x;
+    double y;
+
+public:
+    Vector(double a, double b) : x(a), y(b) {}
+
+    Vector operator+(const Vector& other) const {
+        return Vector(x + other.x, y + other.y);
+    }
+
+    void display() const {
+        std::cout << "(" << x << ", " << y << ")" << std::endl;
+    }
+};
+
+int main() {
+    Vector v1(1.0, 2.0);
+    Vector v2(3.0, 4.0);
+    Vector sum = v1 + v2;
+
+    sum.display(); // Output: (4, 6)
+    return 0;
+}

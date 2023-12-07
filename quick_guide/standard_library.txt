@@ -1,0 +1,122 @@
+Here's a summary of the Standard Library in C++ along with multiple examples:
+
+    Input/Output (I/O) Streams:
+        The <iostream> library provides input/output functionality.
+        std::cin and std::cout are used for console input and output respectively.
+
+cpp
+
+#include <iostream>
+
+int main() {
+    int number;
+    std::cout << "Enter a number: ";
+    std::cin >> number;
+    std::cout << "You entered: " << number << std::endl;
+
+    return 0;
+}
+
+    Strings:
+        The <string> library provides string manipulation capabilities.
+        std::string is a versatile class for working with strings.
+
+cpp
+
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string message = "Hello, world!";
+    std::cout << message << std::endl;
+
+    return 0;
+}
+
+    Containers:
+        The Standard Library offers various container classes for data storage and manipulation.
+        Examples include std::vector, std::list, and std::map.
+
+cpp
+
+#include <iostream>
+#include <vector>
+#include <list>
+#include <map>
+
+int main() {
+    // Vector example
+    std::vector<int> numbers = {1, 2, 3, 4, 5};
+    for (int num : numbers) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+
+    // List example
+    std::list<std::string> names = {"Alice", "Bob", "Charlie"};
+    for (const std::string& name : names) {
+        std::cout << name << " ";
+    }
+    std::cout << std::endl;
+
+    // Map example
+    std::map<int, std::string> phoneBook = {{123456, "Alice"}, {789012, "Bob"}};
+    for (const auto& entry : phoneBook) {
+        std::cout << entry.first << ": " << entry.second << std::endl;
+    }
+
+    return 0;
+}
+
+    Algorithms:
+        The <algorithm> library provides a collection of useful algorithms to operate on containers.
+        Examples include std::sort, std::find, and std::accumulate.
+
+cpp
+
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <numeric>
+
+int main() {
+    std::vector<int> numbers = {5, 2, 8, 3, 1};
+
+    std::sort(numbers.begin(), numbers.end());
+
+    if (std::binary_search(numbers.begin(), numbers.end(), 3)) {
+        std::cout << "Number found!" << std::endl;
+    }
+
+    int sum = std::accumulate(numbers.begin(), numbers.end(), 0);
+    std::cout << "Sum: " << sum << std::endl;
+
+    return 0;
+}
+
+    Other Useful Libraries:
+        C++ Standard Library includes many other helpful libraries like <cmath>, <ctime>, <random>, etc.
+        These libraries offer functionality for math operations, date/time, random number generation, etc.
+
+cpp
+
+#include <iostream>
+#include <cmath>
+#include <ctime>
+#include <random>
+
+int main() {
+    double result = std::sqrt(16.0);
+    std::cout << "Square root: " << result << std::endl;
+
+    std::time_t currentTime = std::time(nullptr);
+    std::cout << "Current time: " << std::asctime(std::localtime(&currentTime));
+
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<int> dist(1, 6);
+    int randomNumber = dist(gen);
+    std::cout << "Random number: " << randomNumber << std::endl;
+
+    return 0;
+}

@@ -95,31 +95,92 @@ class myStackDynamic
       stackSize = size;
       myStack = new int[stackSize];
       startPointer = myStack;
+
+      // init stack with 0s
+      // method 1:
+      for (int i = 0; i < stackSize; i++)
+      {
+        myStack[i] = 0;
+        
+      }
+      for (int i = 0; i < stackSize; i++)
+      {
+        cout << myStack[i] << " ";
+      }
+      cout << endl;
+      // method 2:
+      // int *temp = startPointer;
+      // for (int i = 0; i < stackSize; i++)
+      // {
+      //   *temp = 0;
+      // }
     }
 
     void appendToStack(int number)
     {
-      
+      int *temp = startPointer; // points at first element of array
+      while(*temp != 0)
+      {
+        temp++;
+      }
+      *temp = number;
+      printStack();
     }
 
     void removeFromStack()
     {
+      int *temp = startPointer;
+      int index = 0;
+      while(*temp != 0 && index < stackSize)
+      {
+        index++;
+        temp++;
+      }
+      if (index < stackSize)
+      {
+        --temp;
+        *temp = 0;
+      }
+      else
+      {
+        cout << "Nothing to pop!" << endl;
+      }
 
     }
 
     void searchStack(int number)
     {
-
+      int *temp = startPointer;
+      int index = 0;
+      while (*temp != 0 && index < stackSize)
+      {
+        if(*temp == number)
+        {
+          cout << "Number " << number << " found at the index: " << index << endl;
+          return;
+        }
+        index++;
+        temp++;
+      }
+      cout << "Number " << number << " was not found in the stack." << endl;
     }
 
     void printStack()
     {
-
+      int *temp = startPointer;
+      int index = 0;
+      while(*temp != 0 && index < stackSize)
+      {
+          cout << *temp << " ";
+          temp++;
+          index++;
+      }
+      cout << endl;
     }
 
     ~myStackDynamic()
     {
-
+      delete [] myStack;
     }
 };
 
@@ -134,8 +195,9 @@ int main()
   // dont forget your constructor and destructor.
   // Todo: create a stack with dynamic array size (init with size x)
 
-  myStack stk = myStack(10);
-
+  // myStack stk = myStack(10);
+  myStackDynamic stk = myStackDynamic(12);
+  cout << "this is a dynamic stack" << endl;
   stk.appendToStack(1);
   stk.appendToStack(2);
   stk.appendToStack(3);

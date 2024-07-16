@@ -1,0 +1,446 @@
+Write a function to output a list of parsed values from the input. Include
+all the support functions (ie link list) as well:
+
+    Input:  1. Buffer that holds the input message
+            2. Length of the message in bytes
+
+    Output: Linked list that holds the parsed values. Each node
+            should hold one of the following values:
+                  Speed in km/h
+                  Heading in degrees
+                  Altitude in meters
+
+    Return: 0       - if failed
+            1       - if successful
+
+    Platform: The application software will be running on the intel
+              platform.
+
+    Message format:
+
+            Values are stored in Big Endian notation.
+
+            Byte 1 - 2:  Message Header (0x0508)
+            Byte 3 - 4:  Speed Value in m/s
+            Byte 5 - 6:  Heading Value in degrees
+            Byte 7 - 8:  Altitude Value in cm
+            Byte 9 - 10: Checksum
+
+            1. Checksum is a binary addition of bytes from 3 to 8
+            2. Message header must be checked
+            3. Speed, heading, altitude are all unsigned integers.
+
+
+==============================================================================================
+==============================================================================================
+==============================================================================================
+==============================================================================================
+
+
+Course Outline: Parsing Binary Data and Working with Linked Lists in C
+Module 1: Introduction to C Programming
+
+1.1 Getting Started with C
+
+    Installing a C Compiler (GCC, Clang, etc.)
+    Setting Up an IDE (Visual Studio Code, Code::Blocks, etc.)
+    Writing and Compiling Your First C Program
+
+1.2 Basic Syntax and Structure
+
+    Variables and Data Types
+    Operators and Expressions
+    Basic Input/Output
+    Control Structures (if-else, loops)
+
+Module 2: Functions and Arrays in C
+
+2.1 Functions
+
+    Defining and Calling Functions
+    Function Prototypes
+    Passing Arguments (by value and by reference)
+    Returning Values
+
+2.2 Arrays and Strings
+
+    Declaring and Using Arrays
+    Multi-dimensional Arrays
+    Basic String Operations
+    String Manipulation Functions (strlen, strcpy, strcat, strcmp)
+
+Module 3: Pointers and Memory Management
+
+3.1 Pointers
+
+    Understanding Pointers
+    Pointer Arithmetic
+    Pointers and Arrays
+    Pointers to Pointers
+
+3.2 Dynamic Memory Allocation
+
+    malloc and free
+    Dynamic Arrays
+    Common Memory Management Pitfalls
+
+Module 4: Structures and Linked Lists
+
+4.1 Structures
+
+    Defining and Using Structures
+    Nested Structures
+    Arrays of Structures
+
+4.2 Linked Lists
+
+    Introduction to Linked Lists
+    Creating and Traversing Linked Lists
+    Inserting and Deleting Nodes
+    Advanced Linked List Operations (reversing, sorting)
+
+Module 5: Parsing and Processing Data
+
+5.1 Understanding Data Representation
+
+    Binary, Decimal, Hexadecimal Systems
+    Endianness (Big Endian vs. Little Endian)
+
+5.2 Parsing Binary Data
+
+    Reading Binary Data from Buffers
+    Converting Binary Data to Usable Formats
+
+5.3 Checksum Calculation
+
+    Understanding Checksum
+    Implementing Checksum Validation
+
+Module 6: Practical Application
+
+6.1 Problem Breakdown and Algorithm Design
+
+    Understanding the Problem Statement
+    Designing the Algorithm
+    Writing Pseudocode
+
+6.2 Implementing the Solution
+
+    Writing the C Code
+    Testing and Debugging
+
+6.3 Advanced Topics
+
+    Error Handling
+    Optimizing Code for Performance
+    Writing Modular and Maintainable Code
+
+Module 7: Real-world Applications and Projects
+
+7.1 Mini-projects
+
+    Parsing Simple Data Packets
+    Implementing a Simple Protocol Parser
+
+7.2 Final Project
+
+    Comprehensive Project Involving Binary Data Parsing and Linked Lists
+    Documentation and Presentation
+
+Module 1: Introduction to C Programming
+1.1 Getting Started with C
+
+Lesson 1: Installing a C Compiler
+
+    Objective: Learn to install a C compiler (GCC/Clang).
+    Activity: Follow instructions to install a C compiler on your machine.
+
+Lesson 2: Setting Up an IDE
+
+    Objective: Set up an IDE (e.g., Visual Studio Code).
+    Activity: Configure the IDE for C development.
+
+Lesson 3: Writing and Compiling Your First C Program
+
+    Objective: Write a simple C program and compile it.
+    Activity: Write a "Hello, World!" program and compile it using the IDE.
+
+1.2 Basic Syntax and Structure
+
+Lesson 4: Variables and Data Types
+
+    Objective: Understand basic data types and variable declarations.
+    Activity: Write a program that declares variables of different types and prints their values.
+
+Lesson 5: Operators and Expressions
+
+    Objective: Learn about arithmetic, relational, and logical operators.
+    Activity: Write a program that uses various operators and prints the results.
+
+Lesson 6: Basic Input/Output
+
+    Objective: Learn to use printf and scanf for input and output.
+    Activity: Write a program that takes user input and displays it.
+
+Lesson 7: Control Structures
+
+    Objective: Understand and use if, else, for, while, and do-while.
+    Activity: Write programs using different control structures to solve basic problems.
+
+Module 2: Functions and Arrays in C
+2.1 Functions
+
+Lesson 8: Defining and Calling Functions
+
+    Objective: Understand function definitions and calls.
+    Activity: Write a program with multiple functions and call them from main.
+
+Lesson 9: Function Prototypes
+
+    Objective: Learn about function prototypes and their usage.
+    Activity: Write a program that uses function prototypes.
+
+Lesson 10: Passing Arguments
+
+    Objective: Understand passing arguments by value and by reference.
+    Activity: Write functions that demonstrate both methods of passing arguments.
+
+Lesson 11: Returning Values
+
+    Objective: Learn how functions can return values.
+    Activity: Write functions that return different types of values.
+
+2.2 Arrays and Strings
+
+Lesson 12: Declaring and Using Arrays
+
+    Objective: Learn to declare and use arrays.
+    Activity: Write a program that performs operations on arrays.
+
+Lesson 13: Multi-dimensional Arrays
+
+    Objective: Understand multi-dimensional arrays.
+    Activity: Write a program that uses a 2D array to perform matrix operations.
+
+Lesson 14: Basic String Operations
+
+    Objective: Learn basic string operations.
+    Activity: Write a program that manipulates strings using standard functions.
+
+Lesson 15: String Manipulation Functions
+
+    Objective: Use strlen, strcpy, strcat, strcmp.
+    Activity: Write a program that performs various string manipulations.
+
+Module 3: Pointers and Memory Management
+3.1 Pointers
+
+Lesson 16: Understanding Pointers
+
+    Objective: Learn the basics of pointers.
+    Activity: Write a program that uses pointers to manipulate variables.
+
+Lesson 17: Pointer Arithmetic
+
+    Objective: Understand pointer arithmetic.
+    Activity: Write a program that demonstrates pointer arithmetic.
+
+Lesson 18: Pointers and Arrays
+
+    Objective: Learn the relationship between pointers and arrays.
+    Activity: Write a program that uses pointers to traverse arrays.
+
+Lesson 19: Pointers to Pointers
+
+    Objective: Understand pointers to pointers.
+    Activity: Write a program that uses pointers to pointers.
+
+3.2 Dynamic Memory Allocation
+
+Lesson 20: malloc and free
+
+    Objective: Learn dynamic memory allocation using malloc and free.
+    Activity: Write a program that allocates and frees memory dynamically.
+
+Lesson 21: Dynamic Arrays
+
+    Objective: Implement dynamic arrays.
+    Activity: Write a program that creates and manipulates a dynamic array.
+
+Lesson 22: Common Memory Management Pitfalls
+
+    Objective: Understand common pitfalls and how to avoid them.
+    Activity: Analyze and fix a program with memory management issues.
+
+Module 4: Structures and Linked Lists
+4.1 Structures
+
+Lesson 23: Defining and Using Structures
+
+    Objective: Learn to define and use structures.
+    Activity: Write a program that uses structures to store and manipulate data.
+
+Lesson 24: Nested Structures
+
+    Objective: Understand nested structures.
+    Activity: Write a program that uses nested structures.
+
+Lesson 25: Arrays of Structures
+
+    Objective: Learn to create and use arrays of structures.
+    Activity: Write a program that uses an array of structures to store data.
+
+4.2 Linked Lists
+
+Lesson 26: Introduction to Linked Lists
+
+    Objective: Understand the concept of linked lists.
+    Activity: Write a program that creates and traverses a linked list.
+
+Lesson 27: Creating and Traversing Linked Lists
+
+    Objective: Learn to create and traverse linked lists.
+    Activity: Write a program that creates, traverses, and prints a linked list.
+
+Lesson 28: Inserting and Deleting Nodes
+
+    Objective: Implement insertion and deletion operations in linked lists.
+    Activity: Write a program that inserts and deletes nodes in a linked list.
+
+Lesson 29: Advanced Linked List Operations
+
+    Objective: Perform advanced operations like reversing and sorting.
+    Activity: Write a program that reverses and sorts a linked list.
+
+Module 5: Parsing and Processing Data
+5.1 Understanding Data Representation
+
+Lesson 30: Binary, Decimal, Hexadecimal Systems
+
+    Objective: Understand different number systems.
+    Activity: Write a program that converts between binary, decimal, and hexadecimal.
+
+Lesson 31: Endianness
+
+    Objective: Learn about Big Endian and Little Endian.
+    Activity: Write a program that demonstrates endianness.
+
+5.2 Parsing Binary Data
+
+Lesson 32: Reading Binary Data from Buffers
+
+    Objective: Learn to read binary data.
+    Activity: Write a program that reads and prints binary data from a buffer.
+
+Lesson 33: Converting Binary Data to Usable Formats
+
+    Objective: Convert binary data to human-readable formats.
+    Activity: Write a program that converts binary data to integers and floats.
+
+5.3 Checksum Calculation
+
+Lesson 34: Understanding Checksum
+
+    Objective: Learn the concept of checksum.
+    Activity: Write a program that calculates the checksum of data.
+
+Lesson 35: Implementing Checksum Validation
+
+    Objective: Validate data using checksum.
+    Activity: Write a program that validates data using checksum.
+
+Module 6: Practical Application
+6.1 Problem Breakdown and Algorithm Design
+
+Lesson 36: Understanding the Problem Statement
+
+    Objective: Break down a problem statement into smaller tasks.
+    Activity: Analyze the given problem statement and identify key tasks.
+
+Lesson 37: Designing the Algorithm
+
+    Objective: Design an algorithm to solve a problem.
+    Activity: Write pseudocode for the given problem.
+
+Lesson 38: Writing Pseudocode
+
+    Objective: Learn to write pseudocode.
+    Activity: Write pseudocode for the problem.
+
+6.2 Implementing the Solution
+
+Lesson 39: Writing the C Code
+
+    Objective: Implement the solution in C.
+    Activity: Write the C code based on the pseudocode.
+
+Lesson 40: Testing and Debugging
+
+    Objective: Test and debug the C code.
+    Activity: Test the program with various inputs and fix any issues.
+
+6.3 Advanced Topics
+
+Lesson 41: Error Handling
+
+    Objective: Implement error handling in C.
+    Activity: Write a program that handles errors gracefully.
+
+Lesson 42: Optimizing Code for Performance
+
+    Objective: Optimize code for better performance.
+    Activity: Analyze and optimize the given program.
+
+Lesson 43: Writing Modular and Maintainable Code
+
+    Objective: Write modular and maintainable code.
+    Activity: Refactor the given program to improve readability and maintainability.
+
+Module 7: Real-world Applications and Projects
+7.1 Mini-projects
+
+Lesson 44: Parsing Simple Data Packets
+
+    Objective: Parse simple data packets.
+    Activity: Write a program that parses and prints data from a simple packet.
+
+Lesson 45: Implementing a Simple Protocol Parser
+
+    Objective: Implement a parser for a simple protocol.
+    Activity: Write a program that parses data according to a protocol.
+
+7.2 Final Project
+
+Lesson 46: Comprehensive Project
+
+    Objective: Implement a comprehensive project.
+    Activity: Write a complete program that parses binary data and uses linked lists.
+
+Lesson 47: Documentation and Presentation
+
+    Objective: Document and present the project.
+    Activity: Write documentation and present the project.
+
+Resources and References
+
+    Books:
+        "The C Programming Language" by Brian W. Kernighan and Dennis M. Ritchie
+        "C Programming: A Modern Approach" by K. N. King
+        "Programming in C" by Stephen G. Kochan
+
+    Online Courses:
+        edX: C Programming
+        Coursera: Programming Fundamentals
+
+    Tutorials:
+        TutorialsPoint: C Programming
+        GeeksforGeeks: C Programming
+
+    Practice:
+        LeetCode
+        HackerRank
+        CodeSignal
+
+By following this course outline and utilizing the provided resources, 
+you'll develop a solid foundation in C programming, data structures, 
+and parsing techniques necessary to solve the given problem.

@@ -75,7 +75,7 @@ int reverseStringInPlace(std::string str)
   std::cout << "Reversed: " << str << std::endl;
 }
 
-int main()
+int subStrings()
 {
   std::string str = "Hello, C++!";
   std::cout << str << " is size: " << str.length() << std::endl;
@@ -85,7 +85,22 @@ int main()
 
   std::cout << "Substring: " << sub << std::endl;
 
-  reverseStringInPlace("ReverseMe");
 
   return 0;
+}
+
+
+int main() {
+    std::string sentence = "This is a C++ string.";
+
+    // Find the position of a substring
+    size_t found = sentence.find("C++");
+
+    if (found != std::string::npos) {
+        std::cout << "Substring found at position: " << found << std::endl;
+    } else {
+        std::cout << "Substring not found." << std::endl;
+    }
+
+    return 0;
 }

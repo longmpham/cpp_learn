@@ -4,8 +4,13 @@
 
 
 #include <iostream>
-using namespace std;
+// using namespace std;
 int main()
 {
-  cout <<"Hello World C++";
+  std::string name;
+  std::cout << "Hello World C++" << std::endl;
+  std::cout << "What is your name? ";
+  std::cin >> name; // getline(std::cin, name) is used for the entire line input (white spaces!)
+  // std::getline(std::cin >> std::ws, name)
+  std::cout << "Your name is " << name << std::endl;
 }
